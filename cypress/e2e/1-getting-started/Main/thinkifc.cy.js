@@ -1,0 +1,22 @@
+/// <reference types= "cypress" />
+describe('Easypaisa Checkout', () => {
+    it('Checkout', () => {
+        cy.visit('https://portal.alnafi.com/users/sign_in')
+        cy.get('[type="email"]').type("khuzaimam00@gmail.com")
+        cy.wait(2000)
+        cy.get('[type="password"]').type("shakalaka")
+        cy.wait(2000)
+        cy.get('.button').click()
+        cy.wait(3000)
+        cy.get('#menuToggle').click()
+        cy.wait(4000)
+        cy.get(':nth-child(4) > .sidebar__link').click()
+        cy.wait(2000)
+        cy.get(':nth-child(5) > .sidebar__link').click()
+        cy.get('#collapsePeople > .sidebar__list > :nth-child(1) > a').click()
+        cy.wait(5000)
+        cy.get('#simple-search__input').type("khuzaimam00@gmail.com").should('have.text',' ')
+        cy.wait(7000)
+        cy.get('tr > :nth-child(2) > a').click()
+    })
+})
